@@ -38,7 +38,7 @@ export class AuthService {
          this.http.get('/api/currentIdentity')
          .pipe(tap(data => {
              if(data instanceof Object) {
-                 this.currentUser = <IUser>data;
+                 this.currentUser = <IUser>data; 
              }
          }))
          .subscribe();
@@ -54,7 +54,7 @@ export class AuthService {
 
      logout() {
          this.currentUser = undefined;
-         
+
         let options = { headers: new HttpHeaders({ 'Content-Type': 'application/json'})};
         return this.http.post('/api/logout', {}, options);
      }
